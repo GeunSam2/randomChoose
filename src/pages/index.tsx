@@ -152,9 +152,12 @@ export default function RandomChoose() {
         </form>
         <div className='max-w-xl mx-auto p-5 mt-5 block w-full rounded-md border-sky-200 border-[1px] min-h-[120px] shadow-sm'>
           {results.map((item) => (
-            <span
-              className='inline-block px-3 py-1.5 text-sm font-semibold text-gray-900 bg-slate-200 rounded-md mr-2 mb-2'
-            >{item}</span>
+            <>
+              <span
+                className='inline-block px-3 py-1.5 text-sm font-semibold text-gray-900 bg-slate-200 rounded-md mr-2 mb-2'
+              >{item}</span>
+              <span> </span>
+            </>
           ))}
         </div>
         <div className='max-w-xl mx-auto block mt-5'>

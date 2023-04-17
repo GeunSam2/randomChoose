@@ -1,0 +1,209 @@
+root: true
+env:
+  es2021: true
+  node: true
+extends:
+  - airbnb
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: latest
+  sourceType: module
+  project: ['tsconfig.json']
+ignorePatterns: ['/node_modules', '/dist', '/.next', '/next.config.js', '/scripts']
+plugins:
+  - '@typescript-eslint'
+rules: &baseRules
+  comma-dangle: [error, {
+      arrays: always-multiline,
+      objects: always-multiline,
+      imports: always-multiline,
+      exports: always-multiline,
+      functions: only-multiline,
+    }
+  ]
+  import/extensions: [error, ignorePackages, {
+      js: never,
+      jsx: never,
+      ts: never,
+      tsx: never,
+    }
+  ]
+  import/prefer-default-export: off
+  quotes: [error, single, { allowTemplateLiterals: true }]
+  no-nested-ternary: off
+  arrow-parens: [error, as-needed]
+  max-len: [error, 120, 2, {
+      ignoreUrls: true,
+      ignoreComments: true,
+      ignoreRegExpLiterals: true,
+      ignoreStrings: false,
+      ignoreTemplateLiterals: true,
+      ignorePattern: "^import ",
+    }
+  ]
+  no-console: error
+  object-curly-spacing: off
+  key-spacing: off
+  no-multi-spaces: [error, { ignoreEOLComments: true, exceptions: { "Property": false }}]
+  quote-props: [error, consistent]
+  object-curly-newline: [error, { multiline: true, consistent: true }]
+  function-paren-newline: [error, consistent]
+  no-unused-expressions: [error, { allowTernary: true }]
+  lines-between-class-members: [error, always, { exceptAfterSingleLine: true }]
+
+  # eslint의 no-unused-vars는 type 정의 코드에서 제대로 동작하지 않아서 off 하고
+  # 대신 "@typescript-eslint/no-unused-vars" 를 사용.
+  no-unused-vars: off
+  "@typescript-eslint/naming-convention": [error, {
+      "selector": "typeLike",
+      "format": ["PascalCase"]
+    }]
+  "@typescript-eslint/no-unused-vars": [error, { argsIgnorePattern: "^_" }]
+  "@typescript-eslint/no-require-imports": error
+
+  # semi, @typescript-eslint/semi, @typescript-eslint/member-delimiter-style
+  # 위 3개 속성은 한 세트로 봐야함.
+  semi: off
+  "@typescript-eslint/semi": [error, never]
+  "@typescript-eslint/member-delimiter-style": [error, {
+      "multiline": {
+        "delimiter": "none",
+        "requireLast": true
+      },
+      "singleline": {
+        "delimiter": "semi",
+        "requireLast": false
+      },
+    }
+  ]
+  semi-style: [error, first]
+  "@typescript-eslint/no-misused-promises": [error, {
+      "checksVoidReturn": false,
+    }
+  ]
+
+settings:
+  import/resolver:
+    typescript: {}
+
+overrides:
+  - files:
+      - 'pages/**/*.ts'
+      - 'pages/**/*.tsx'
+      - 'client/**/*.ts'
+      - 'client/**/*.tsx'
+    extends:
+      - airbnb
+      - plugin:react/recommended
+      - next
+    plugins:
+      - react
+    env:
+      browser: true
+      node: false
+    settings:
+      react:
+        version: "detect"
+    rules:
+      <<: *baseRules
+      react/jsx-filename-extension: [error, { extensions: [ .tsx ]}]
+      react/require-default-props: off
+
+  - files:
+      - 'server/**/*.ts'
+    globals:
+      NodeJS: true
+
+  - files:
+      - '**/*.js'
+      - '**/*.jsx'
+    rules:
+      "@typescript-eslint/no-require-imports": off
+      react-hooks/exhaustive-deps: error
+      # TODO: js, jsx 파일은 ts, tsx 파일로 전환될 예정이므로,
+      # js, jsx 를 위한 eslint 체크는 최소한만 하기위해 많은 설정을 off 해둔 상태.
+      # 모든 js, jsx 가 ts, tsx 로 전환되면 이 override는 삭제할 설정.
+      no-shadow: off
+      no-restricted-globals: off
+      no-console: off
+      space-in-parens: off
+      no-multi-spaces: off
+      no-unused-expressions: off
+      vars-on-top: off
+      no-var: off
+      padded-blocks: off
+      keyword-spacing: off
+      operator-assignment: off
+      no-underscore-dangle: off
+      no-param-reassign: off
+      quote-props: off
+      no-void: off
+      no-await-in-loop: off
+      space-before-blocks: off
+      prefer-object-spread: off
+      no-multiple-empty-lines: off
+      no-else-return: off
+      no-plusplus: off
+      prefer-exponentiation-operator: off
+      no-restricted-properties: off
+      no-restricted-syntax: off
+      function-paren-newline: off
+      camelcase: off
+      semi: off
+      "@typescript-eslint/semi": off
+      semi-style: off
+      no-use-before-define: off
+      arrow-parens: off
+      consistent-return: off
+      prefer-destructuring: off
+      quotes: off
+      max-len: off
+      default-case: off
+      spaced-comment: off
+      space-infix-ops: off
+      comma-dangle: off
+      arrow-body-style: off
+      prefer-template: off
+      indent: off
+      operator-linebreak: off
+      key-spacing: off
+      object-curly-newline: off
+      object-curly-spacing: off
+      no-trailing-spaces: off
+      object-shorthand: off
+      array-bracket-spacing: off
+      comma-spacing: off
+      implicit-arrow-linebreak: off
+      yoda: off
+      import/no-named-as-default: off
+      import/order: off
+      import/newline-after-import: off
+      import/no-useless-path-segments: off
+      jsx-a11y/anchor-is-valid: off
+      react/jsx-indent-props: off
+      react/react-in-jsx-scope: off
+      react/function-component-definition: off
+      react/jsx-one-expression-per-line: off
+      react/prop-types: off
+      react/jsx-curly-newline: off
+      react/jsx-closing-tag-location: off
+      react/jsx-curly-brace-presence: off
+      react/jsx-tag-spacing: off
+      react/jsx-wrap-multilines: off
+      react/jsx-closing-bracket-location: off
+      react/jsx-props-no-spreading: off
+      react/destructuring-assignment: off
+
+  - files:
+      - '*.spec.ts'
+    globals:
+      describe: readonly
+      it: readonly
+      beforeEach: readonly
+      afterEach: readonly
+      before: readonly
+      after: readonly
+    rules:
+      <<: *baseRules
+      import/no-extraneous-dependencies: [error, {devDependencies: true}]
+      no-unused-expressions: off

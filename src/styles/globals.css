@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Rampart;
+  src: url(../fonts/RampartOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: Righteous;
+  src: url(../fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+  font-family: NanumBarunGothic;
+  src: url(../fonts/NanumBarunGothic.ttf);
+}
+
+@font-face {
+  font-family: NanumBarunGothicBold;
+  src: url(../fonts/NanumBarunGothicBold.ttf);
+}
+
+@font-face {
+  font-family: NanumBarunGothicLight;
+  src: url(../fonts/NanumBarunGothicLight.ttf);
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../fonts/OpenSans.ttf);
+}
+
+@font-face {
+  font-family: OpenSansItalic;
+  src: url(../fonts/OpenSansItalic.ttf);
+}

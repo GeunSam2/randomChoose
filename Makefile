@@ -1,5 +1,5 @@
 #!make
-IMAGE_NAME = geunsam2/misthios-homepage
+IMAGE_NAME = geunsam2/randomchoose
 
 help:           ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'

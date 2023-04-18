@@ -59,7 +59,7 @@ export default function RandomChoose() {
   return (
     <>
       <Head>
-        <title>큐트큐트 현징이의❤️</title>
+        <title>숫자 랜덤 뽑기</title>
       </Head>
       <div className="isolate bg-white py-24 px-6 sm:py-32 lg:px-8">
         <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
@@ -90,7 +90,7 @@ export default function RandomChoose() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">두근두근 랜덤뽑기</h2>
           <p className="mt-2 text-lg leading-8 text-gray-600 font-nanumBGothic">
-            현징이가~ 만드는~❤️ 랜덤 게임!!!
+            숫자 뽑기를 통해 랜덤으로 당첨자들을 뽑아보세요.
           </p>
           {/* <p className="mt-2 text-lg leading-8 text-gray-600 font-nanumBGothic">
           숫자 뽑기를 통해 랜덤으로 당첨자들을 뽑아보세요.
